@@ -13,7 +13,6 @@ import java.util.List;
  */
 @CrossOrigin
 @RestController
-
 @RequestMapping("/")
 public class ProductController {
     @Autowired
