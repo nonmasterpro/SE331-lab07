@@ -15,6 +15,11 @@ public class DbProductDao implements ProductDao  {
     @Autowired
     ProductRepository productRepository;
     @Override
+
+    public List<Product> getProductsByName(String name) {
+                return productRepository.findByNameLike(name);
+            }
+
     public List<Product> getProducts() {
         return productRepository.findAll();
     }
@@ -49,4 +54,4 @@ public class DbProductDao implements ProductDao  {
         return productRepository.save(product);
     }
 }
-/*qqqqq*/
+/*qq2*/

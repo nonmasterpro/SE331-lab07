@@ -16,6 +16,12 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     ProductDao productDao;
     @Override
+
+        public List<Product> getProductsByName(String name) {
+                return productDao.getProductsByName(name);
+            }
+
+
     public List<Product> getProducts() {
         return productDao.getProducts();
     }

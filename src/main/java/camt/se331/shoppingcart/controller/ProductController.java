@@ -42,4 +42,9 @@ public class ProductController {
     public  Product edit(@PathVariable("id") Long id){
         return productService.deleteProduct(id);
     }
+
+    @RequestMapping(value = "getProduct",method = RequestMethod.GET)
+    public  List<Product> getListByName(@RequestParam("name")String name){
+        return productService.getProductsByName(name);
+    }
 }

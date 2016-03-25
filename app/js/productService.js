@@ -8,7 +8,7 @@ productService.factory('productService',function($resource){
         }});
 
 })
-
+/*1*/
 productService.service('totalCalService',function() {
     this.getTotalNetPrice = function (products) {
         var output = 0.0;
