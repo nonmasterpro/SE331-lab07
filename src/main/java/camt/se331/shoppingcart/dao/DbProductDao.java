@@ -31,7 +31,7 @@ public class DbProductDao implements ProductDao  {
 
     @Override
     public Product getProduct(Long id) {
-        return productRepository.findOne();
+        return productRepository.findOne(id);
     }
 
     @Override
