@@ -55,6 +55,19 @@ public class DatabaseInitializationBean implements InitializingBean {
         shoppingCart.setId(1L);
         shoppingCartRepository.save(shoppingCart);
 
+        ShoppingCart shoppingCart2 = new ShoppingCart();
+        List<SelectedProduct> selectedProducts2 = new ArrayList<>();
+        SelectedProduct[] initSelectedProduct2 = {
+                new SelectedProduct(initProduct[5], 5),
+                new SelectedProduct(initProduct[3], 2)
+        };
+        selectedProducts2.addAll(Arrays.asList(initSelectedProduct2));
+        Calendar calendar2 = new GregorianCalendar(2015, 4, 7);
+        shoppingCart2.setSelectedProducts(selectedProducts2);
+        shoppingCart2.setPurchaseDate(calendar.getTime());
+        shoppingCart2.setId(2L);
+        shoppingCartRepository.save(shoppingCart2);
+
     }
 }
 
