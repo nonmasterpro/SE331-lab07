@@ -9,6 +9,7 @@
                 ['$scope', 'shoppingCartService', '$location', '$rootScope','$routeParams',
                 function ($scope, shoppingCartService, $location, $rootScope,$rootParams) {
                         var id = $rootParams.id;
+                    $scope.cart=[];
                        shoppingCartService.get({id:id},function(data){
                                 $scope.cart = data;
                            })
