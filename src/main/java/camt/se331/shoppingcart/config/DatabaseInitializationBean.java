@@ -1,13 +1,16 @@
 package camt.se331.shoppingcart.config;
 
 import camt.se331.shoppingcart.entity.Product;
+import camt.se331.shoppingcart.entity.SelectedProduct;
+import camt.se331.shoppingcart.entity.ShoppingCart;
 import camt.se331.shoppingcart.repository.ProductRepository;
+import camt.se331.shoppingcart.repository.ShoppingCartRepository;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
+import java.util.*;
 
 /**
  * Created by non on 3/25/2016.
@@ -17,7 +20,10 @@ import java.util.Arrays;
 public class DatabaseInitializationBean implements InitializingBean {
         @Autowired
         ProductRepository productRepository;
-        @Override
+    @Autowired
+    ShoppingCartRepository shoppingCartRepository;
+
+    @Override
         public void afterPropertiesSet() throws Exception {
                 Product[] initProduct =  {
                                 new Product(1l,"Kindle","the good book reader",6900.00),
@@ -34,6 +40,21 @@ public class DatabaseInitializationBean implements InitializingBean {
 
                         productRepository.save(Arrays.asList(initProduct));
                 productRepository.save(new Product(1l,"Kindle","the good book reader",6900.00));
-            }
+
+        ShoppingCart shoppingCart = new ShoppingCart();
+        List<SelectedProduct> selectedProducts = new ArrayList<>();
+        SelectedProduct[] initSelectedProduct = {
+                new SelectedProduct(initProduct[2], 5),
+                new SelectedProduct(initProduct[4], 2),
+                new SelectedProduct(initProduct[1], 1),
+        };
+        selectedProducts.addAll(Arrays.asList(initSelectedProduct));
+        Calendar calendar = new GregorianCalendar(2015,4,7);
+        shoppingCart.setSelectedProducts(selectedProducts);
+        shoppingCart.setPurchaseDate(calendar.getTime());
+        shoppingCart.setId(1L);
+        shoppingCartRepository.save(shoppingCart);
+
+    }
     }
 

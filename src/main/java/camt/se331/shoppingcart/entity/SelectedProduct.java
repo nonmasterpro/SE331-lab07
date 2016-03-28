@@ -18,12 +18,28 @@ public class SelectedProduct {
     Integer amount;
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SelectedProduct)) return false;
 
+        SelectedProduct that = (SelectedProduct) o;
 
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (getProduct() != null ? !getProduct().equals(that.getProduct()) : that.getProduct() != null) return false;
+        return getAmount() != null ? getAmount().equals(that.getAmount()) : that.getAmount() == null;
 
+    }
 
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (getProduct() != null ? getProduct().hashCode() : 0);
+        result = 31 * result + (getAmount() != null ? getAmount().hashCode() : 0);
+        return result;
+    }
 
-        public Double getTotalPrice(){
+    public Double getTotalPrice(){
         return 0.0;
     }
 
