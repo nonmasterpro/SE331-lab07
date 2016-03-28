@@ -4,6 +4,7 @@ import camt.se331.shoppingcart.dao.ShoppingCartDao;
 import camt.se331.shoppingcart.entity.ShoppingCart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -17,10 +18,10 @@ public class ShoppingCartServiceImpl implements ShoppingCartService{
     @Autowired
     ShoppingCartDao shoppingCartDao;
 
-
+    @Transactional
     @Override
     public ShoppingCart findById(Long id) {
-        return null;
+        return shoppingCartDao.findById(id);
     }
 
     @Override
@@ -35,7 +36,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService{
 
     @Override
     public ShoppingCart addShoppingCart(ShoppingCart shoppingCart) {
-        return null;
+        return shoppingCartDao.addShoppingCart(shoppingCart);
     }
 
     @Override

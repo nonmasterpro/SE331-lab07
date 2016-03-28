@@ -29,6 +29,8 @@ labApp.config(['$routeProvider',
                    controller: 'showShoppingCartController'
            }).
       otherwise({redirectTo: '/listProduct'});
+
+
 }]);
 
 labApp.config(function($translateProvider){

@@ -11,6 +11,7 @@ import java.util.List;
 /**
  * Created by non on 3/28/2016.
  */
+
 @Repository
 public class ShoppingCartDaoImpl implements ShoppingCartDao   {
     @Autowired
@@ -19,7 +20,7 @@ public class ShoppingCartDaoImpl implements ShoppingCartDao   {
 
     @Override
     public ShoppingCart findById(Long id) {
-        return null;
+        return shoppingCartRepository.findOne(id);
     }
 
     @Override
@@ -39,7 +40,7 @@ public class ShoppingCartDaoImpl implements ShoppingCartDao   {
 
     @Override
     public ShoppingCart addShoppingCart(ShoppingCart shoppingCart) {
-        return null;
+        return shoppingCartRepository.save(shoppingCart);
     }
 
     @Override
